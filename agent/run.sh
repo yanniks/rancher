@@ -200,7 +200,7 @@ verify_docker_client_server_version()
     info "Checking for Docker version >=" $client_version
     docker version 2>&1 | grep Server\ version >/dev/null || {
         echo "Please ensure Host Docker version is >=${client_version} and container has r/w permissions to docker.sock" 1>&2
-        exit 1
+        #exit 1 # Nope.
     }
     info Found $(docker version 2>&1 | grep Server\ version)
     for i in version info; do
